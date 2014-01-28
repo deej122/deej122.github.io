@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+   <meta charset=utf-8 />
+      <link rel="stylesheet" type="text/css" href="stylesheets/template.css">
+      <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    </head>
+
+    <body>
+
+<!--Begin Ember/Handlebars Text--> 
+
+    <script type="text/x-handlebars" data-template-name="weeblys" id="all-stuff">  
+    <header id="header">
+      <img id="brand" src="assets/sprites/Weebly-Logo.png"/>
+    </header>
+
+<!--Left Bar contents-->
+
+    <div id="left">
+      <div class="group" id="templates">
+        <div class="groupTitle">TEMPLATES</div>
+
+<!--Dynamically add pages when created-->
+
+        <ul>
+        {{#each itemController="edit"}}
+         <li id="pageControl" {{bind-attr class="isSelected:selected:notSelected isDeleting:removePage"}}>
+          {{#if isEditing}}
+            {{edit-pages class="editTitle" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+          {{else}}  
+           <ul>
+            <li id="pageNameDisplay" class="pageName" {{action "setSelected" on="click"}}>{{title}}</li>
+           </ul>
+            <ul class="controls">
+              <li class="edit" {{action "editPageTitle" on="click"}}></li>
+              <li class="delete" {{action "deletePage" on="click"}}></li>
+            </ul>
+          {{/if}}  
+          </li>
+          <br>
+           {{/each}}
+<!--Allow for creation of new page-->                           
+          <li class="newPage">
+            {{input type="text" class="pageName" id="newPageText" placeholder="ADD NEW PAGE" value=newPageTitle action="createNewPage"}}
+            <ul class="controls">
+              <li class="plus" {{action "createNewPage" on="click"}}></li>
+            </ul>
+          </li>          
+        </ul>
+      </div>  
+      <br>
+
+<!--All Elements Data--> 
+
+      <div class="group" id="elements">
+        <div class="groupTitle">ELEMENTS</div>
+          <ul>
+            <div class="addElement" id="titleBox">
+              <li id="addTitle"></li>
+              <span class="addDesc">TITLE</span>
+              <span class="rightBorder"></span>
+              <span class="bottomBorder"></span>
+            </div>
+            <div class="addElement" id="textBox">
+              <li id="addText"></li>
+              <span class="addDesc">TEXT</span>
+              <span class="bottomBorder"></span>
+            </div>
+            <br>
+            <div class="addElement" id="imageBox"> 
+              <li id="addImage"></li>
+              <span class="addDesc">IMAGE</span>
+              <span class="rightBorder"></span>
+              <span class="bottomBorder"></span>
+            </div>
+            <div class="addElement" id="navBox">  
+              <li id="addNav" {{action "createNewPage" on="drop"}}></li>
+              <span class="addDesc">NAV</span>
+              <span class="bottomBorder"></span>
+            </div>  
+          </ul>
+      </div>
+      <br>
+      <div class="group" id="settings">
+        <div class="groupTitle">SETTINGS</div>
+        <div id="grid">
+          <span id="gridLabel">SITE GRID</span>
+          <span id="gridSwitch" class="switchedOff"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="mainContent">
+
+<!--Top Page Nav-->    
+      <div id="pageNav" class="droppableNav" {{action "createNewPage" on="drop"}}>
+      {{#each itemController="edit"}}
+        <span id="pageNavElement" {{bind-attr class="isSelected:selectedNav:notSelectedNav"}} {{action "setSelected" on="click"}}>{{title}}</span>     
+      {{/each}}  
+      </div>
+
+<!--Image and contents-->
+      <div id="imageContent" class="droppableImage">
+
+<!--Resize Bars and X Button (Consistent for Image, Title, Body text)-->
+
+        <span id="imagePic" class="image resizableImage">
+         <img style="width:20px;height:100px;"class="imageResize leftImage ui-resizable-handle ui-resizable-w invisible" src="Assets/Sprites/Resize-Bar.png"/>
+          <img style="width:20px;height:100px;" class="imageResize rightImage ui-resizable-handle ui-resizable-e invisible" src="Assets/Sprites/Resize-Bar.png"/>
+          <img style="width:20px;height:100px;" class="imageResize bottomImage ui-resizable-handle ui-resizable-s invisible" src="Assets/Sprites/Resize-Bar.png"/>          
+          <span class="closeImage invisible"></span>
+          <img id="picture" src="assets/sprites/image-Placeholder.png"/>
+          <br>
+          <p id="upload">ADD IMAGE +</p>
+          <input type="file" id="fileUpload" style="display:none"/>
+          <br>
+        </span>
+      </div>  
+
+<!--Title and Body contents-->
+
+      <div id="textContent">
+        <div id="titleContent" class="droppableTitle">
+        	<span id="titleAll">
+          <h3 class="title resizableTitle">
+          <img style="width:20px;height:30px;"class="titleResize leftTitle ui-resizable-handle ui-resizable-w invisible" src="Assets/Sprites/Resize-Bar.png"/>
+          <img style="width:20px;height:30px;" class="titleResize rightTitle ui-resizable-handle ui-resizable-e invisible" src="Assets/Sprites/Resize-Bar.png"/>
+          <img style="width:20px;height:100px;" class="titleResize bottom ui-resizable-handle ui-resizable-s invisible" src="Assets/Sprites/Resize-Bar.png"/>             
+			<span class="closeTitle invisible"></span>
+          	Add Title Here
+          </h3>
+          </span>
+        </div>
+        <div id="bodyContent" class="droppableText">
+          <span class="body resizableText">             
+          <img style="width:20px;height:100px;"class="bodyResize leftBody ui-resizable-handle ui-resizable-w invisible" src="Assets/Sprites/Resize-Bar.png"/>
+          <img style="width:20px;height:100px;" class="bodyResize rightBody ui-resizable-handle ui-resizable-e invisible" src="Assets/Sprites/Resize-Bar.png"/>
+          <img style="width:20px;height:100px;" class="bodyResize bottom ui-resizable-handle ui-resizable-s invisible" src="Assets/Sprites/Resize-Bar.png"/>          
+          	<span class="closeBody invisible"></span>
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi convallis massa quis justo. Nam sollicitudin ipsum eu justo. Suspendisse libero risus, ornare non, ultricies ac, mattis eget, dolor. In dignissim orci ut lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi convallis massa quis justo. Nam sollicitudin ipsum eu justo. Suspendisse libero risus, ornare non, ultricies ac, mattis eget, dolor. In dignissim orci ut lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi convallis massa quis justo. Nam sollicitudin ipsum eu justo. Suspendisse libero risus, ornare non, ultricies ac, mattis eget, dolor. In dignissim orci ut lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi convallis massa quis justo. Nam sollicitudin ipsum eu justo. Suspendisse libero risus, ornare non, ultricies ac, mattis eget, dolor. In dignissim orci ut lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi convallis massa quis justo. Nam sollicitudin ipsum eu justo. 
+          </span> 
+        </div>
+      </div>
+    </div>
+
+    </script>
+
+<!--End Ember/Handlebars Text--> 
+
+<!--General Ember + jQuery-->
+      <script src="scripts/libs/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script src="scripts/libs/handlebars-1.3.0.js"></script>
+      <script src="scripts/libs/ember-1.3.1.js"></script>
+      <script src="scripts/libs/ember-data.js"></script>
+      <script src="scripts/libs/localstorage_adapter.js"></script>
+<!--Application Ember-->      
+      <script src="scripts/app.js"></script>
+      <script src="scripts/router.js"></script>
+      <script src="scripts/models/pages.js"></script>
+      <script src="scripts/controllers/new.js"></script>
+      <script src="scripts/controllers/edit.js"></script>
+      <script src="scripts/views/edit_page_view.js"></script>
+
+    </body>
+
+</html>

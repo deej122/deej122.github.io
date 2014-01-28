@@ -1,0 +1,761 @@
+/*LOAD FONTS*/
+@font-face
+{
+    src:url(../Assets/Font/ProximaNova-Reg.otf);
+    font-family:'ProximaNova';
+}
+
+@font-face
+{
+    src:url(../Assets/Font/ProximaNova-Sbold.otf);
+    font-family:'ProximaNova-bold';
+}
+/*END FONTS*/
+
+/*Set Height requirements for page and main elements on page*/
+html{
+	width: 100%;
+	min-width: 1400px;
+	height: 95%;
+	font-family: 'ProximaNova'
+}
+
+body{
+	height: 100%;
+}
+
+/*IMPORTANT: NEED FOR EMBER TO ALLOW 100% HEIGHT*/
+body > .ember-view{
+	height: 100.5%;
+}
+
+/*General styling for common elements*/
+a{
+	text-decoration: none;
+}
+
+ul, li{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+li:hover{
+	cursor: pointer;
+}
+
+input:focus{
+	outline: none;
+}
+
+textarea:focus{
+	outline: none;
+	border: 1px solid rgba(126, 185, 255, 1);
+}
+
+/*Commonly Used Style Elements*/
+
+.invisible{
+	visibility: hidden;
+}
+
+.visible{
+	display: "";
+}
+
+/*Sets placeholder color for ADD NEW PAGE*/
+
+*::-webkit-input-placeholder {
+	color: rgba(62, 82, 104, 1);
+}    
+*:-moz-placeholder {
+    /* FF 4-18 */
+	color: rgba(62, 82, 104, 1);
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+	color: rgba(62, 82, 104, 1);
+}    
+*:-ms-input-placeholder {
+    /* IE 10+ */
+	color: rgba(62, 82, 104, 1);
+}
+
+/*ALL PAGE CONTENTS*/
+
+/*Header Styling*/
+
+#header{
+	height: 40px;
+	width: 100%;
+	min-width: 400px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(66, 131, 195, .9);
+	border-bottom: solid 1px rgba(0,0,0,1);
+    -moz-box-shadow:    1px 1px 0px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 1px 1px 0px .5px rgba(0,0,0,.3);
+    box-shadow:         1px 1px 0px .5px rgba(0,0,0,.3);	
+}
+
+#brand{
+	margin-left: 30px;
+}
+
+/*LEFT NAVBAR STYLING*/
+
+#left{
+	float: left;
+	margin-left: -8px;
+	margin-top: 33px;
+	width: 20%;
+	min-width: 100px;
+	min-height: 100%;
+	background-color: rgba(33, 47, 63, 1);
+	text-align: center;
+}
+
+#leftContent{
+	width: 100%;
+}
+
+/*Groups are each section i.e. templates, elements, settings*/
+.group{
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.groupTitle{
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: rgba(120, 143, 168, 1);
+	background-color: rgba(62, 82, 104, 1);
+	border-bottom: solid 1px rgba(0,0,0,1);
+    -moz-box-shadow:    0px 1px 0px .5px rgba(0,0,0,.3), inset -2px 0px 5px .5px rgba(0,0,0,.3);		
+    -webkit-box-shadow: 0px 1px 0px .5px rgba(0,0,0,.3), inset -2px 0px 5px .5px rgba(0,0,0,.3);		
+    box-shadow:         0px 1px 0px .5px rgba(0,0,0,.3), inset -2px 0px 5px .5px rgba(0,0,0,.3);		
+}
+
+/*Left Bar Group Contents********************************/
+
+/*TEMPLATES GROUP CONTENTS*/
+
+#templates{
+	min-height: 140px;
+	max-height: 300px;
+	overflow: scroll;
+	text-align: center;
+	border-bottom: 2px groove rgba(25, 37, 48, 1);
+}
+
+/*Title of all pages*/
+.pageName{
+	float: left;
+	margin-left: 20px;
+}
+
+/*ADD NEW PAGE*/
+.newPage{
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	text-align: left;
+	margin-left: 40px;
+	margin-right: 40px;
+	height: 35px;
+	line-height: 35px;
+	padding-right: 0px;
+	padding-left: 0px;
+	color: rgba(62, 82, 104, 1);
+	border: 2px solid rgba(62, 82, 104, 1);
+	border-radius: 5px;
+	background-color: rgba(62, 82, 104, 0);
+}
+
+#newPageText{
+	font-family: 'ProximaNova-bold';
+	color: rgba(255, 255, 255, 1);	
+	border: none;
+	background-color: rgba(62, 82, 104, 0);
+	font-size: 12px;
+	height: 35px;
+	width: 70%;	
+}
+
+/*Color on click of page name and HOVER of Delete button (removePage)*/
+.selected{
+	font-family: 'ProximaNova-bold';	
+	font-size: 12px;
+	text-align: left;
+	margin-left: 40px;
+	margin-right: 40px;
+	height: 35px;
+	line-height: 35px;
+	padding-right: 40px;
+	padding-left: 0px;
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(82, 133, 196, 1);
+	border-radius: 5px;
+	background-color: rgba(65, 120, 190, 1);	
+    -moz-box-shadow:    0px 1px 2px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0px 1px 2px .5px rgba(0,0,0,.3);
+    box-shadow:         0px 1px 2px .5px rgba(0,0,0,.3);	
+}
+
+.notSelected{
+	font-family: 'ProximaNova-bold';	
+	font-size: 12px;
+	text-align: left;
+	margin-left: 40px;
+	margin-right: 40px;
+	height: 35px;
+	line-height: 35px;
+	padding-right: 40px;
+	padding-left: 0px;
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(76, 94, 113, 1);
+	border-radius: 5px;
+	background-color: rgba(62, 82, 104, 1);
+    -moz-box-shadow:    0px 1px 2px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0px 1px 2px .5px rgba(0,0,0,.3);
+    box-shadow:         0px 1px 2px .5px rgba(0,0,0,.3);	
+}
+
+.removePage{
+	background-color: rgba(205, 83, 82, 1);
+	border-color: rgba(210, 97, 96, 1);
+}
+/*General Control Options for all Pages (i.e. Plus, Delete, Edit)*/
+.controls{
+	text-align: right;
+}
+
+.controls li{
+	display: none;
+}
+
+#templates li:hover .controls li{
+	display: inline-block;
+}
+
+/*Edit View(s) of Page Names*/
+.editTitle{
+	font-family: 'ProximaNova-bold';
+	color: rgba(255, 255, 255, 1);	
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid rgba(255,255,255,1);
+	background-color: transparent;
+	margin-left: 20px;
+	font-size: 12px;
+	height: 12px;
+	width: 100%;	
+}
+
+/*All Individual Control stylings*/
+.plus{
+	float: left;
+	margin-top: 6px;
+	width: 25px;
+	height: 19px;
+	background-image: url('../Assets/Sprites/Add-Delete-Edit-Icons.png');
+	background-position: -5px -9px;
+}
+
+.plus:hover{
+	background-position: -5px -28px;
+}
+
+.edit{
+	margin-top: 0px;
+	margin-right: 0px;
+	width: 25px;
+	height: 15px;
+	background-image: url('../Assets/Sprites/Add-Delete-Edit-Icons.png');
+	background-position: -28px -12px;	
+}
+
+.edit:hover{
+	background-position: -28px -31px;	
+}
+
+.delete{
+	margin-top: 6px;
+	margin-right: -23px;
+	width: 15px;
+	height: 20px;
+	background-image: url('../Assets/Sprites/Add-Delete-Edit-Icons.png');
+	background-position: -52px -8px;	
+}
+
+.delete:hover{
+	margin-top: 6px;
+	margin-right: -23px;
+	width: 15px;
+	height: 20px;
+	background-image: url('../Assets/Sprites/Add-Delete-Edit-Icons.png');
+	background-position: -52px -27px;	
+}
+
+/*ELEMENTS GROUP CONTENTS*/
+
+#elements{
+	height: 250px;
+	width: 100%;
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	color: rgba(62, 82, 104, 1);
+}
+
+#elements ul div{
+	display: inline-block;
+}
+
+#elements ul{
+	margin-left: -24px;
+	margin-top: 0px;
+}
+
+/*Setting up elements group*/
+.addDesc{
+	margin-top: auto;
+}
+
+.rightBorder{
+	display: block;
+	margin-top: -90px;
+	width: 100%;
+	height: 100%;
+	float: right;
+	border-right: 2px groove rgba(25, 37, 48, 1);
+}
+
+.bottomBorder{
+	display: block;
+	margin-top: -90px;
+	width: 100%;
+	height: 90%;
+	border-bottom: 2px groove rgba(25, 37, 48, 1);	
+}
+
+.addElement{
+	height: 120px;
+	width: 49%;
+	text-align: center;
+}
+
+.addElement:hover{
+	cursor: move;
+}
+
+/*Styling for each individual ELEMENT*/
+#titleBox{
+	float: left;
+	margin-left: 2%;
+}
+
+#addTitle{
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 53px;
+	height: 54px;
+	background-image: url('../Assets/Sprites/Element-Icons.png');
+	background-position: -8px 63px;	
+	border-radius: 5px; 	
+    -moz-box-shadow:    0px 1px 2px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0px 1px 2px .5px rgba(0,0,0,.3);
+    box-shadow:         0px 1px 2px .5px rgba(0,0,0,.3);	
+}
+
+#addTitle:hover{
+	cursor: move;
+}
+
+#textBox{
+	float: left;
+}
+
+#addText{
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 53px;
+	height: 54px;
+	background-image: url('../Assets/Sprites/Element-Icons.png');
+	background-position: -62px 63px;
+	border-radius: 5px; 	
+    -moz-box-shadow:    0px 1px 2px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0px 1px 2px .5px rgba(0,0,0,.3);
+    box-shadow:         0px 1px 2px .5px rgba(0,0,0,.3);		
+}
+
+#addText:hover{
+	cursor: move;
+}
+
+#imageBox{
+	float: left;
+	margin-left: 2%;
+}
+
+#addImage{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 53px;
+	height: 54px;
+	background-image: url('../Assets/Sprites/Element-Icons.png');
+	background-position: -117px 63px;	
+	border-radius: 5px; 
+    -moz-box-shadow:    0px 1px 2px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0px 1px 2px .5px rgba(0,0,0,.3);
+    box-shadow:         0px 1px 2px .5px rgba(0,0,0,.3);		
+}
+
+#addImage:hover{
+	cursor: move;	
+}
+
+#navBox{
+	float: left;
+}
+
+#addNav{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 53px;
+	height: 54px;
+	background-image: url('../Assets/Sprites/Element-Icons.png');
+	background-position: 62px 63px;	
+	border-radius: 5px; 
+    -moz-box-shadow:    0px 1px 2px .5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0px 1px 2px .5px rgba(0,0,0,.3);
+    box-shadow:         0px 1px 2px .5px rgba(0,0,0,.3);		
+}
+
+#addNav:hover{
+	cursor: move;	
+}
+
+/*SETTINGS GROUP CONTENTS*/
+
+#settings{
+	min-height: 52px;
+	border-bottom: 2px groove rgba(25, 37, 48, 1);	
+}
+
+/*Setting up styling associated with Grid Switch Interaction*/
+#gridLabel #gridSwitch{
+	display: inline-block;
+}
+
+#gridLabel{
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	float: left;
+	margin-left: 50px;
+	margin-right: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: rgba(71, 92, 116, 1);
+}
+
+#gridSwitch{
+	float: right;
+	margin-top: 10px;
+	margin-right: 50px;
+	width: 56px;
+	height: 24px;
+	background-image: url('../Assets/Sprites/Toggle-Switch.png');	
+}
+
+#gridSwitch:hover{
+	cursor: pointer;
+}
+
+.switchedOff{
+	background-position: 0px -4px;	
+}
+
+span.switchedOff:hover{
+	background-position: 0px -29px;	
+}
+
+.switchedOn{
+	background-position: 0px -54px;
+}
+
+
+/*Main Content: RIGHT SIDE OF PAGE*****************************************/
+
+#mainContent{
+	float: left;
+	width: 80%;	
+	height: 100%;
+}
+
+/*NAV ELEMENT*/
+
+#pageNav{
+	min-height: 50px;
+	margin-top: 70px;
+	margin-left: 100px;
+}
+
+#pageNavElement{
+	display: inline-block;
+}
+#pageNavElement:hover{
+	cursor: pointer;
+}
+
+/*Classes for PAGE Navs on top of page for when page is selected or not*/
+.selectedNav{
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(133, 153, 174, 1);
+	border: 2px solid rgba(113, 134, 156, 1); 
+	border-radius: 5px;			
+}
+
+.notSelectedNav{
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+	color: rgba(133, 153, 174, 1);
+	background-color: rgba(255, 255, 255, 1);
+	border: 2px solid rgba(113, 134, 156, 1); 
+	border-radius: 5px;	
+}
+
+/*IMAGE ELEMENT*/
+
+#imageContent{
+	min-height: 100px;
+}
+
+.image{
+	margin-top: 40px;
+	margin-left: 100px;
+	margin-right: 100px;
+	max-height: 400px;
+	width: 80%;
+	max-width: 80%;
+	text-align: center;
+	background-color: rgba(235, 239, 242, 1);
+	border: 1px solid rgba(179, 192, 207, 1);
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.image img{
+	vertical-align: center;
+	margin-top: 60px;
+}
+
+/*inside contents of big gray "Image"*/
+#picture{
+	max-height: 80%;
+	max-width: 100%;
+}
+
+#upload{
+	font-family: 'ProximaNova-bold';
+	font-size: 12px;
+	margin-top: -10px;
+	margin-bottom: 50px;
+	color: rgba(202, 212, 221, 1);
+}
+
+/*TEXT ELEMENTS*/
+
+#textContent{
+	margin-left: 100px;
+	margin-right: 100px;
+	color: rgba(62, 82, 104, 1);
+}
+
+/*Title styling*/
+#titleContent{
+	min-height: 50px;
+}
+
+.title{
+	font-size: 30px;
+	display: inline-block;
+	padding-right: 10px;
+	max-width: 45%;
+	padding: 5px;		
+	border-radius: 5px;	
+	border: 1px solid rgba(126, 185, 255, 0);	
+}
+
+/*Body styling*/
+#bodyContent{
+	min-height: 100px;
+}
+
+.body{
+	display: inline-block;
+	font-size: 14px;
+	max-height: 200px;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 5px;		
+	border-radius: 5px;
+	border: 1px solid rgba(126, 185, 255, 0);	
+}
+
+.body:target{
+	cursor: text;
+}
+
+/*END MAIN CONTENT ORIGINAL STYLING**************************/
+
+/*MAJOR DYNAMIC STYLING**************************/
+
+/*Make Elements smaller when another is added*/
+.after{
+	max-width: 45%;
+}
+
+.after2{
+	width: 40%;
+}
+
+/*Make X button show up and change*/
+
+/*Image X*/
+.closeImage{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 35px;
+	background-image: url('../Assets/Sprites/Delete-Element.png');
+	background-position: -5px -11px;
+}
+
+.closeImage:hover{
+	background-position: -48px -11px;	
+	cursor: pointer;	
+}
+
+/*Title X*/
+.closeTitle{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 37px;
+	background-image: url('../Assets/Sprites/Delete-Element.png');
+	background-position: -7px -10px;
+}
+
+.closeTitle:hover{
+	background-position: -50px -10px;
+	cursor: pointer;		
+}
+
+/*Body X*/
+.closeBody{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 35px;
+	background-image: url('../Assets/Sprites/Delete-Element.png');
+	background-position: -5px -11px;
+}
+
+.closeBody:hover{
+	background-position: -48px -11px;	
+	cursor: pointer;
+}
+
+/*X Button styling*/
+
+.blue{
+	border: 1px solid rgba(126, 185, 255, 1);
+}
+
+.red{
+	border-color: rgba(232, 99, 97, 1);
+}
+
+/*Resizing of Elements using Blue Handles*/
+
+.leftImage{
+	margin-top: 5%;
+	margin-left: -2px;	
+}
+
+.rightImage{
+	margin-top: 5%;
+	margin-right: -2px;				
+}
+
+.bottomImage{
+	margin-bottom: -42px;
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-webkit-transform:rotate(90deg);
+	margin-left: 49%;		
+}
+
+.leftTitle{
+	margin-top: 5%;	
+	margin-left: -2px;	
+}
+
+.rightTitle{
+	margin-top: 5%;
+	margin-right: -2px;				
+}
+
+.leftBody{
+	margin-top: 5%;	
+	margin-left: -2px;
+}
+
+.rightBody{
+	margin-top: 5%;
+	margin-right: -2px;				
+}
+
+.bottom{
+	margin-bottom: -42px;
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-webkit-transform:rotate(90deg);
+	margin-left: 45%;	
+}
+
+.top{
+	margin-top: -40px;	
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-webkit-transform:rotate(90deg);
+	margin-left: 45%;		
+}
+
+/*Drag and Drop Styling (Borders)*/
+.dropZone{
+	border: 3px dashed rgba(126, 185, 255, 1);
+}
+
